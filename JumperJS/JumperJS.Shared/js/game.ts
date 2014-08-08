@@ -22,6 +22,8 @@ var fsheet = new createjs.SpriteSheet(floordata);
 var floor = new createjs.Sprite(fsheet, "normal");
 floor.x = 0;
 floor.y = 700;
+floor.force = { min: 5, mul: .9 };
+
 //floor.regY = -20;
 stage.addChild(floor);
 
@@ -73,6 +75,20 @@ sprite.max_vy = 100;
 var currentState = (sprite.vy < 0) ? "jump" : "fall";
 spriteImage.gotoAndPlay(currentState);
 
+// floor list
+var floorlist = [];
+for (var i = 0; i < 10; i++) {
+
+    var floor = new createjs.Sprite(fsheet, "normal");
+    floor.x = 300 * Math.random();
+    floor.y = 900 - i*90;
+    floor.force = { min: 5, mul: .9, max: 50 };
+
+    //floor.regY = -20;
+    stage.addChild(floor);
+    floorlist.push();
+}
+
 function tick(event) {
 
     // gravidade
@@ -90,22 +106,19 @@ function tick(event) {
 
     var position = sprite.localToLocal(0, 0, floor);
 
-    if (position.y > 0 && (position.y < sprite.max_vy) && (sprite.vy > 0)) {
+    
+    if (position.y > 0 && (position.y < sprite.max_vy) && (sprite.vy > 0) &&
+        (position.x > 0 && position.x < 114)) {
         sprite.y = floor.y;
-        sprite.vy = -0.9 * sprite.vy;
+        sprite.vy = -floor.force.mul * sprite.vy - floor.force.min;
         floor.gotoAndPlay("bounce");
     }
-
-    if (floor.hitTest(sprite.x, sprite.y) === true) {
-        var f = floor.hitArea;
-        sprite.vy = -0.9 * sprite.vy;
-    }
-
-    // colision check: jump
-    if (sprite.y > 1000) {
-        sprite.vy = -0.9* sprite.vy;
-        sprite.y = 1000;
-    }
+    
+    //// colision check: jump
+    //if (sprite.y > 1000) {
+    //    sprite.vy = -0.9* sprite.vy;
+    //    sprite.y = 1000;
+    //}
 
     // update the state
     var nextState = (sprite.vy < 0) ? "jump" : "fall";
