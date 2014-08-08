@@ -6,14 +6,15 @@ var stage = new createjs.Stage(canvas);
 
 var text = new createjs.Text("Hello world", "70px Arial", "#ccc");
 text.x = 10;
-text.y = 10;
-
-var bitmap = new createjs.Bitmap("images/megaman.png");
-bitmap.x = 0;
-bitmap.y = 100;
-
+text.y = 30;
 stage.addChild(text);
-stage.addChild(bitmap);
+
+// Show sprite sheet
+//var bitmap = new createjs.Bitmap("images/megaman.png");
+//bitmap.x = 0;
+//bitmap.y = 100;
+//stage.addChild(bitmap);
+
 
 var texturedata = {
     "images": ["images/mega.png"],
@@ -43,6 +44,7 @@ var texturedata = {
 
 var ss = new createjs.SpriteSheet(texturedata);
 var sprite = new createjs.Sprite(ss, "jump");
+sprite.scaleX = sprite.scaleY = .8;
 
 stage.addChild(sprite);
 
@@ -64,7 +66,7 @@ function tick(event) {
     if (sprite.vy > sprite.max_vy) {
         sprite.vy = sprite.max_vy;
     }
-
+    
     sprite.y += sprite.vy;
 
     // jump
