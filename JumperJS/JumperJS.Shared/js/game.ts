@@ -1,5 +1,7 @@
 ﻿///<reference path="../typings/createjs/createjs.d.ts" />
 
+var keyboard = { left: false, right: false};
+
 var canvas = document.getElementById("canvas");
 
 var stage = new createjs.Stage(canvas);
@@ -19,10 +21,10 @@ var floordata = {
 };
 
 var fsheet = new createjs.SpriteSheet(floordata);
-var floor = new createjs.Sprite(fsheet, "normal");
-floor.x = 0;
-floor.y = 700;
-floor.force = { min: 5, mul: .9 };
+//var floor = new createjs.Sprite(fsheet, "normal");
+//floor.x = 0;
+//floor.y = 700;
+//floor.force = { min: 5, mul: .9 };
 
 //floor.regY = -20;
 stage.addChild(floor);
@@ -86,7 +88,7 @@ for (var i = 0; i < 10; i++) {
 
     //floor.regY = -20;
     stage.addChild(floor);
-    floorlist.push();
+    floorlist.push(floor);
 }
 
 function tick(event) {
@@ -104,14 +106,22 @@ function tick(event) {
     
     sprite.y += delta;
 
-    var position = sprite.localToLocal(0, 0, floor);
+    for (var i = 0; i < floorlist.length; i++) {
 
-    
-    if (position.y > 0 && (position.y < sprite.max_vy) && (sprite.vy > 0) &&
-        (position.x > 0 && position.x < 114)) {
-        sprite.y = floor.y;
-        sprite.vy = -floor.force.mul * sprite.vy - floor.force.min;
-        floor.gotoAndPlay("bounce");
+        var floor = floorlist[i];
+
+        var position = sprite.localToLocal(0, 0, floor);
+
+        if (position.y > 0 && (position.y < sprite.max_vy) && (sprite.vy > 0))
+        {
+            if (position.x > -20 && position.x < 134) {
+                sprite.y = floor.y;
+                sprite.vy = -floor.force.mul * sprite.vy - floor.force.min;
+                floor.gotoAndPlay("bounce");
+                break;
+            }
+        }
+
     }
     
     //// colision check: jump
@@ -137,4 +147,19 @@ function tick(event) {
     stage.update();
 }
 
+window.onkeydown = function (evt) {
 
+    var code = evt.keyCode;
+
+    switch (code) {
+        case 39: //left 
+            sprite.x += 10;
+            break;
+
+        case 37: //right
+            sprite.x -= 10;
+            break;
+
+    }
+
+}
