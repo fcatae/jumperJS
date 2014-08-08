@@ -69,8 +69,10 @@ stage.addChild(sprite);
 
 createjs.Ticker.addEventListener("tick", tick);
 
+sprite.vx = 0;
+
 // queda
-sprite.lasty = sprite.vy = 1;
+sprite.vy = 1;
 sprite.ay = 3;
 sprite.max_vy = 100;
 
@@ -146,12 +148,20 @@ function tick(event) {
 
     // handle keyboard
     if (keyboard.left) {
-        sprite.x += 10;
+        sprite.vx = 10;
     }
     if (keyboard.right) {
-        sprite.x -= 10;
+        sprite.vx = -10;
+    }
+    sprite.x += sprite.vx;
+
+    if (sprite.vx > 0) {
+        sprite.vx--;
     }
 
+    if (sprite.vx < 0) {
+        sprite.vx++;
+    }
 
     stage.update();
 }
