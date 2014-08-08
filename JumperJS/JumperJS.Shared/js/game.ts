@@ -143,7 +143,16 @@ function tick(event) {
         spriteImage.gotoAndPlay(nextState);
         currentState = nextState;
     }
-    
+
+    // handle keyboard
+    if (keyboard.left) {
+        sprite.x += 10;
+    }
+    if (keyboard.right) {
+        sprite.x -= 10;
+    }
+
+
     stage.update();
 }
 
@@ -153,11 +162,28 @@ window.onkeydown = function (evt) {
 
     switch (code) {
         case 39: //left 
-            sprite.x += 10;
+            keyboard.left = true;
             break;
 
         case 37: //right
-            sprite.x -= 10;
+            keyboard.right= true;
+            break;
+
+    }
+
+}
+
+window.onkeyup = function (evt) {
+
+    var code = evt.keyCode;
+
+    switch (code) {
+        case 39: //left 
+            keyboard.left = false;
+            break;
+
+        case 37: //right
+            keyboard.right = false;
             break;
 
     }
