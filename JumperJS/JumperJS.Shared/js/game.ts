@@ -4,7 +4,7 @@ var canvas = document.getElementById("canvas");
 
 var stage = new createjs.Stage(canvas);
 
-var text = new createjs.Text("Hello world", "70px Arial", "#ccc");
+var text = new createjs.Text("Megaman", "70px Arial", "#ccc");
 text.x = 10;
 text.y = 30;
 stage.addChild(text);
@@ -15,17 +15,25 @@ stage.addChild(text);
 //bitmap.y = 100;
 //stage.addChild(bitmap);
 
+var bitmap = new createjs.Bitmap("images/floor.png");
+bitmap.x = 0;
+bitmap.y = 700;
+bitmap.scaleX = .2;
+bitmap.scaleY = .2;
+
+stage.addChild(bitmap);
+
 
 var texturedata = {
     "images": ["images/mega.png"],
     "frames": [
         [2, 2, 84, 143],
-        [2, 147, 60, 143],
-        [2, 292, 71, 143],
-        [2, 437, 74, 143],
+        [2, 147, 60, 144],
+        [2, 292, 71, 144],
+        [2, 437, 74, 144],
         [2, 582, 86, 144],
         [2, 728, 81, 144],
-        [2, 874, 94, 143]
+        [2, 874, 94, 144]
     ],
     animations: {
         jump: [0, 2, false, .5],
@@ -42,9 +50,22 @@ var texturedata = {
 //    }
 //};
 
+var sprite = new createjs.Container();
+
+var target = new createjs.Bitmap("images/target.png");
+target.x = target.y = 0;
+target.scaleX = target.scaleY = .5;
+sprite .addChild(target);
+
+
 var ss = new createjs.SpriteSheet(texturedata);
-var sprite = new createjs.Sprite(ss, "jump");
-sprite.scaleX = sprite.scaleY = .8;
+var spriteImage = new createjs.Sprite(ss, "jump");
+spriteImage.scaleX = spriteImage.scaleY = .8;
+spriteImage.regX = 70*spriteImage.scaleX/2;
+spriteImage.regY = 144*spriteImage.scaleY;
+sprite.addChild(spriteImage);
+
+sprite.x = 50;
 
 stage.addChild(sprite);
 
@@ -56,29 +77,35 @@ sprite.ay = 3;
 sprite.max_vy = 200;
 
 var currentState = (sprite.vy < 0) ? "jump" : "fall";
-sprite.gotoAndPlay(currentState);
-sprite.paused = true;
+spriteImage.gotoAndPlay(currentState);
 
 function tick(event) {
 
     // gravidade
     sprite.vy += sprite.ay;
+
+    var delta = sprite.vy;
+
     if (sprite.vy > sprite.max_vy) {
-        sprite.vy = sprite.max_vy;
+        delta = sprite.max_vy;
+    } else if (sprite.vy < -sprite.max_vy) {
+        delta = -sprite.max_vy;
     }
     
-    sprite.y += sprite.vy;
+    sprite.y += delta;
 
-    // jump
-    if (sprite.y > 600) {
-        sprite.vy = -50;
-        sprite.y = 600;
+    
+    // colision check: jump
+    if (sprite.y > 1000) {
+        sprite.vy = -0.9* sprite.vy;
+        sprite.y = 1000;
     }
 
+    // update the state
     var nextState = (sprite.vy < 0) ? "jump" : "fall";
-
+    
     if (currentState != nextState) {
-        sprite.gotoAndPlay(nextState);
+        spriteImage.gotoAndPlay(nextState);
         currentState = nextState;
     }
     

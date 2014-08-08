@@ -9,6 +9,7 @@
     <Content Include="$(MSBuildThisFileDirectory)images\floor.png" />
     <Content Include="$(MSBuildThisFileDirectory)images\mega.png" />
     <Content Include="$(MSBuildThisFileDirectory)images\megaman.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\target.png" />
     <Content Include="$(MSBuildThisFileDirectory)js\createjs-2013.12.12.min.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\default.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\game.ts" />
