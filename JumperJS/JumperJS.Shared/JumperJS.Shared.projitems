@@ -7,6 +7,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)images\floor.png" />
+    <Content Include="$(MSBuildThisFileDirectory)images\floor2.png" />
     <Content Include="$(MSBuildThisFileDirectory)images\mega.png" />
     <Content Include="$(MSBuildThisFileDirectory)images\megaman.png" />
     <Content Include="$(MSBuildThisFileDirectory)images\target.png" />

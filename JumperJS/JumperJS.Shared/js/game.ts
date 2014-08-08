@@ -15,14 +15,33 @@ stage.addChild(text);
 //bitmap.y = 100;
 //stage.addChild(bitmap);
 
-var bitmap = new createjs.Bitmap("images/floor.png");
-bitmap.x = 0;
-bitmap.y = 700;
-bitmap.scaleX = .2;
-bitmap.scaleY = .2;
+var floordata = {
+    images: ["images/floor.png", "images/floor2.png"],
+    frames: [[0, 0, 114, 18, 0], [0, 0, 114, 38, 1]],
+    animations: { 
+        normal: [0, 0, false, 1],
+        bounce: [1, 1, "normal", 1]
+    }
+};
 
-stage.addChild(bitmap);
+var fsheet = new createjs.SpriteSheet(floordata);
+var floor = new createjs.Sprite(fsheet, "normal");
+floor.x = 0;
+floor.y = 700;
+floor.regY = -20;
+stage.addChild(floor);
 
+//var bitmap = new createjs.Bitmap("images/floor.png");
+//bitmap.x = 0;
+//bitmap.y = 700;
+//bitmap.regX = 0;
+//bitmap.regY = -20;
+////bitmap.scaleX = .2;
+////bitmap.scaleY = .2;
+
+//stage.addChild(bitmap);
+
+//var floor = bitmap;
 
 var texturedata = {
     "images": ["images/mega.png"],
@@ -57,7 +76,6 @@ target.x = target.y = 0;
 target.scaleX = target.scaleY = .5;
 sprite .addChild(target);
 
-
 var ss = new createjs.SpriteSheet(texturedata);
 var spriteImage = new createjs.Sprite(ss, "jump");
 spriteImage.scaleX = spriteImage.scaleY = .8;
@@ -74,7 +92,7 @@ createjs.Ticker.addEventListener("tick", tick);
 // queda
 sprite.vy = 1;
 sprite.ay = 3;
-sprite.max_vy = 200;
+sprite.max_vy = 100;
 
 var currentState = (sprite.vy < 0) ? "jump" : "fall";
 spriteImage.gotoAndPlay(currentState);
@@ -94,7 +112,18 @@ function tick(event) {
     
     sprite.y += delta;
 
-    
+    var position = sprite.localToLocal(0, 0, floor);
+
+    if (position.y > 0 && (position.y < sprite.max_vy) && (sprite.vy > 0)) {
+        sprite.y = floor.y;
+        sprite.vy = -0.9 * sprite.vy;
+    }
+
+    if (floor.hitTest(sprite.x, sprite.y) === true) {
+        var f = floor.hitArea;
+        sprite.vy = -0.9 * sprite.vy;
+    }
+
     // colision check: jump
     if (sprite.y > 1000) {
         sprite.vy = -0.9* sprite.vy;
