@@ -6,6 +6,9 @@
     <SharedGUID>13b17d4f-4f5f-4009-b4ea-9b7d37d172af</SharedGUID>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)images\megaman.png" />
+    <Content Include="$(MSBuildThisFileDirectory)js\createjs-2013.12.12.min.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\default.js" />
+    <Content Include="$(MSBuildThisFileDirectory)js\game.ts" />
   </ItemGroup>
 </Project>
