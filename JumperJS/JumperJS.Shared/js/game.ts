@@ -28,7 +28,7 @@ var texturedata = {
     ],
     animations: {
         jump: [0, 2, false, .5],
-        fall: [3, 5, false, .5]
+        fall: [3, 4, false, .1]
     }
 };
 
@@ -42,7 +42,7 @@ var texturedata = {
 //};
 
 var ss = new createjs.SpriteSheet(texturedata);
-var sprite = new createjs.Sprite(ss, "fall");
+var sprite = new createjs.Sprite(ss, "jump");
 
 stage.addChild(sprite);
 
@@ -53,15 +53,33 @@ sprite.vy = 1;
 sprite.ay = 3;
 sprite.max_vy = 200;
 
+var currentState = (sprite.vy < 0) ? "jump" : "fall";
+sprite.gotoAndPlay(currentState);
+sprite.paused = true;
+
 function tick(event) {
 
     // gravidade
-    sprite.y += sprite.vy;
     sprite.vy += sprite.ay;
     if (sprite.vy > sprite.max_vy) {
         sprite.vy = sprite.max_vy;
     }
 
+    sprite.y += sprite.vy;
+
+    // jump
+    if (sprite.y > 600) {
+        sprite.vy = -50;
+        sprite.y = 600;
+    }
+
+    var nextState = (sprite.vy < 0) ? "jump" : "fall";
+
+    if (currentState != nextState) {
+        sprite.gotoAndPlay(nextState);
+        currentState = nextState;
+    }
+    
     stage.update();
 }
 
