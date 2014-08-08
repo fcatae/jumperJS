@@ -20,7 +20,7 @@ var floordata = {
     frames: [[0, 0, 114, 18, 0], [0, 0, 114, 38, 1]],
     animations: { 
         normal: [0, 0, false, 1],
-        bounce: [1, 1, "normal", 1]
+        bounce: { frames: [1,1,0,1], speed: .5, next: "normal" }
     }
 };
 
@@ -30,18 +30,6 @@ floor.x = 0;
 floor.y = 700;
 floor.regY = -20;
 stage.addChild(floor);
-
-//var bitmap = new createjs.Bitmap("images/floor.png");
-//bitmap.x = 0;
-//bitmap.y = 700;
-//bitmap.regX = 0;
-//bitmap.regY = -20;
-////bitmap.scaleX = .2;
-////bitmap.scaleY = .2;
-
-//stage.addChild(bitmap);
-
-//var floor = bitmap;
 
 var texturedata = {
     "images": ["images/mega.png"],
@@ -59,15 +47,6 @@ var texturedata = {
         fall: [3, 4, false, .1]
     }
 };
-
-//var data = {
-//    images: ["images/megaman.png"],
-//    // width, height & registration point of each sprite
-//    frames: { width: 80, height: 144 },
-//    animations: {
-//        jump: [0, 6, false, .5]        
-//    }
-//};
 
 var sprite = new createjs.Container();
 
@@ -117,6 +96,7 @@ function tick(event) {
     if (position.y > 0 && (position.y < sprite.max_vy) && (sprite.vy > 0)) {
         sprite.y = floor.y;
         sprite.vy = -0.9 * sprite.vy;
+        floor.gotoAndPlay("bounce");
     }
 
     if (floor.hitTest(sprite.x, sprite.y) === true) {
