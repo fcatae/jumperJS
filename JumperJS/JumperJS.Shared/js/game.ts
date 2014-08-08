@@ -1,0 +1,68 @@
+﻿///<reference path="../typings/createjs/createjs.d.ts" />
+
+var canvas = document.getElementById("canvas");
+
+var stage = new createjs.Stage(canvas);
+
+var text = new createjs.Text("Hello world", "70px Arial", "#ccc");
+text.x = 10;
+text.y = 10;
+
+var bitmap = new createjs.Bitmap("images/megaman.png");
+bitmap.x = 0;
+bitmap.y = 100;
+
+stage.addChild(text);
+stage.addChild(bitmap);
+
+var texturedata = {
+    "images": ["images/mega.png"],
+    "frames": [
+        [2, 2, 84, 143],
+        [2, 147, 60, 143],
+        [2, 292, 71, 143],
+        [2, 437, 74, 143],
+        [2, 582, 86, 144],
+        [2, 728, 81, 144],
+        [2, 874, 94, 143]
+    ],
+    animations: {
+        jump: [0, 2, false, .5],
+        fall: [3, 5, false, .5]
+    }
+};
+
+//var data = {
+//    images: ["images/megaman.png"],
+//    // width, height & registration point of each sprite
+//    frames: { width: 80, height: 144 },
+//    animations: {
+//        jump: [0, 6, false, .5]        
+//    }
+//};
+
+var ss = new createjs.SpriteSheet(texturedata);
+var sprite = new createjs.Sprite(ss, "fall");
+
+stage.addChild(sprite);
+
+createjs.Ticker.addEventListener("tick", tick);
+
+// queda
+sprite.vy = 1;
+sprite.ay = 3;
+sprite.max_vy = 200;
+
+function tick(event) {
+
+    // gravidade
+    sprite.y += sprite.vy;
+    sprite.vy += sprite.ay;
+    if (sprite.vy > sprite.max_vy) {
+        sprite.vy = sprite.max_vy;
+    }
+
+    stage.update();
+}
+
+
