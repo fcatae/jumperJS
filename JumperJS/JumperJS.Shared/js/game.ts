@@ -9,12 +9,6 @@ text.x = 10;
 text.y = 30;
 stage.addChild(text);
 
-// Show sprite sheet
-//var bitmap = new createjs.Bitmap("images/megaman.png");
-//bitmap.x = 0;
-//bitmap.y = 100;
-//stage.addChild(bitmap);
-
 var floordata = {
     images: ["images/floor.png", "images/floor2.png"],
     frames: [[0, 0, 114, 18, 0], [0, 0, 114, 38, 1]],
@@ -28,7 +22,7 @@ var fsheet = new createjs.SpriteSheet(floordata);
 var floor = new createjs.Sprite(fsheet, "normal");
 floor.x = 0;
 floor.y = 700;
-floor.regY = -20;
+//floor.regY = -20;
 stage.addChild(floor);
 
 var texturedata = {
@@ -44,16 +38,19 @@ var texturedata = {
     ],
     animations: {
         jump: [0, 2, false, .5],
-        fall: [3, 4, false, .1]
+        fall: [3, 4, false, .1],
+        stop: [5, 5]
     }
 };
 
 var sprite = new createjs.Container();
 
-var target = new createjs.Bitmap("images/target.png");
-target.x = target.y = 0;
-target.scaleX = target.scaleY = .5;
-sprite .addChild(target);
+if (window.showTarget) {
+    var target = new createjs.Bitmap("images/target.png");
+    target.x = target.y = 0;
+    target.scaleX = target.scaleY = .5;
+    sprite.addChild(target);
+}
 
 var ss = new createjs.SpriteSheet(texturedata);
 var spriteImage = new createjs.Sprite(ss, "jump");
@@ -69,7 +66,7 @@ stage.addChild(sprite);
 createjs.Ticker.addEventListener("tick", tick);
 
 // queda
-sprite.vy = 1;
+sprite.lasty = sprite.vy = 1;
 sprite.ay = 3;
 sprite.max_vy = 100;
 
@@ -112,7 +109,13 @@ function tick(event) {
 
     // update the state
     var nextState = (sprite.vy < 0) ? "jump" : "fall";
-    
+
+    // TODO: REMOVE IT LATER
+    if (sprite.lasty == sprite.y ) {
+        nextState = "stop";
+    }
+    sprite.lasty = sprite.y;
+
     if (currentState != nextState) {
         spriteImage.gotoAndPlay(nextState);
         currentState = nextState;
