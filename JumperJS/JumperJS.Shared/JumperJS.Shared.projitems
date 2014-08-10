@@ -14,5 +14,9 @@
     <Content Include="$(MSBuildThisFileDirectory)js\createjs-2013.12.12.min.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\default.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\game.ts" />
+    <Content Include="$(MSBuildThisFileDirectory)sounds\gameover.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)sounds\intro.mp3" />
+    <Content Include="$(MSBuildThisFileDirectory)sounds\jump.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)sounds\sparkman.mp3" />
   </ItemGroup>
 </Project>
