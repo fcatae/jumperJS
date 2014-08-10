@@ -6,6 +6,7 @@ var camera = {
     y: 0
 };
 
+var lastfloor = -1;
 
 var canvas = document.getElementById("canvas");
 
@@ -91,7 +92,7 @@ for (var i = 0; i < 7; i++) {
     var floor = new createjs.Sprite(fsheet, "normal");
     floor.x = 500 * Math.random();
     floor.y = 900 - i*200;
-    floor.force = { min: 20, mul: 0.3, max: 50 };
+    floor.force = { min: 30, mul: 1.1, max: 50 };
 
     //floor.regY = -20;
     stage.addChild(floor);
@@ -123,8 +124,16 @@ function tick(event) {
         {
             if (position.x > -20 && position.x < 134) {
                 sprite.y = floor.y;
-                sprite.vy = -floor.force.mul * sprite.vy - floor.force.min;
+                
+                if (i === lastfloor) {
+                    sprite.vy = -floor.force.mul * sprite.vy;
+                } else {
+                    sprite.vy = -floor.force.min;
+                }
+                lastfloor = i;
+
                 floor.gotoAndPlay("bounce");
+
                 break;
             }
         }
