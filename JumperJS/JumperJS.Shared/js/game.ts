@@ -182,7 +182,7 @@ function tick(event) {
 
 function MoveScreenUp() {
 
-    if (sprite.y < 300) {
+    if (sprite.y < 300 && sprite.vy < 0) {
 
         var deltaY = 300 - sprite.y;
 
