@@ -80,23 +80,26 @@ sprite.vx = 0;
 // queda
 sprite.vy = 1;
 sprite.ay = 3;
-sprite.max_vy = 100;
+sprite.max_vy = 50;
 
 var currentState = (sprite.vy < 0) ? "jump" : "fall";
 spriteImage.gotoAndPlay(currentState);
 
 // floor list
-var floorlist = [];
-for (var i = 0; i < 7; i++) {
+var floorlist = new Array(7);
+var floorlist_distance = 200;
+var floorlist_respawn_distance = floorlist.length * floorlist_distance;
+
+for (var i = 0; i < floorlist.length; i++) {
 
     var floor = new createjs.Sprite(fsheet, "normal");
     floor.x = 500 * Math.random();
-    floor.y = 900 - i*200;
+    floor.y = 900 - i * floorlist_distance;
     floor.force = { min: 30, mul: 1.1, max: 50 };
 
     //floor.regY = -20;
     stage.addChild(floor);
-    floorlist.push(floor);
+    floorlist[i] = floor;
 }
 
 function tick(event) {
@@ -203,8 +206,9 @@ function Respawn() {
 
         var floor = floorlist[i];
 
-        if (floor.y > 1000) {
-            floor.y -= 1000;
+        if (floor.y > floorlist_respawn_distance) {
+            floor.x = 500 * Math.random();
+            floor.y -= floorlist_respawn_distance;
         }
     }
 }
