@@ -169,6 +169,7 @@ function tick(event) {
     }
 
     MoveScreenUp();
+    Respawn();
 
     stage.update();
 }
@@ -177,8 +178,10 @@ function MoveScreenUp() {
 
     if (sprite.y < 300) {
 
-        var deltaY = 10;
+        var deltaY = 300 - sprite.y;
 
+        deltaY = (deltaY > 30) ? 30 : deltaY;
+        
         screen.y += deltaY;
 
         for (var i = 0; i < floorlist.length; i++) {
@@ -190,6 +193,18 @@ function MoveScreenUp() {
 
     }
 
+}
+
+function Respawn() {
+
+    for (var i = 0; i < floorlist.length; i++) {
+
+        var floor = floorlist[i];
+
+        if (floor.y > 1000) {
+            floor.y -= 1000;
+        }
+    }
 }
 
 window.onkeydown = function (evt) {
