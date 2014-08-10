@@ -86,12 +86,12 @@ spriteImage.gotoAndPlay(currentState);
 
 // floor list
 var floorlist = [];
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < 7; i++) {
 
     var floor = new createjs.Sprite(fsheet, "normal");
-    floor.x = 300 * Math.random();
-    floor.y = 900 - i*90;
-    floor.force = { min: 30, mul: 0.0, max: 50 };
+    floor.x = 500 * Math.random();
+    floor.y = 900 - i*200;
+    floor.force = { min: 20, mul: 0.3, max: 50 };
 
     //floor.regY = -20;
     stage.addChild(floor);
@@ -130,12 +130,6 @@ function tick(event) {
         }
 
     }
-    
-    //// colision check: jump
-    //if (sprite.y > 1000) {
-    //    sprite.vy = -0.9* sprite.vy;
-    //    sprite.y = 1000;
-    //}
 
     // update the state
     var nextState = (sprite.vy < 0) ? "jump" : "fall";
