@@ -2,7 +2,7 @@
 
 var keyboard = { left: false, right: false};
 
-var screen = {
+var camera = {
     y: 0
 };
 
