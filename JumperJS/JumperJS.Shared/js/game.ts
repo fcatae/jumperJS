@@ -2,6 +2,11 @@
 
 var keyboard = { left: false, right: false};
 
+var screen = {
+    y: 0
+};
+
+
 var canvas = document.getElementById("canvas");
 
 var stage = new createjs.Stage(canvas);
@@ -163,7 +168,28 @@ function tick(event) {
         sprite.vx++;
     }
 
+    MoveScreenUp();
+
     stage.update();
+}
+
+function MoveScreenUp() {
+
+    if (sprite.y < 300) {
+
+        var deltaY = 10;
+
+        screen.y += deltaY;
+
+        for (var i = 0; i < floorlist.length; i++) {
+
+            var floor = floorlist[i];
+
+            floor.y += deltaY;
+        }
+
+    }
+
 }
 
 window.onkeydown = function (evt) {
