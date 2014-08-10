@@ -91,7 +91,7 @@ for (var i = 0; i < 10; i++) {
     var floor = new createjs.Sprite(fsheet, "normal");
     floor.x = 300 * Math.random();
     floor.y = 900 - i*90;
-    floor.force = { min: 5, mul: .9, max: 50 };
+    floor.force = { min: 30, mul: 0.0, max: 50 };
 
     //floor.regY = -20;
     stage.addChild(floor);
@@ -192,7 +192,6 @@ function MoveScreenUp() {
         }
 
     }
-
 }
 
 function Respawn() {
