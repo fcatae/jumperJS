@@ -20,7 +20,7 @@ stage.addChild(text);
 
 // Background
 var background = new createjs.Bitmap("images/bg.png");
-
+background.y = -12000 + 1200;
 stage.addChild(background);
 
 // Floor data
@@ -103,6 +103,7 @@ for (var i = 0; i < floorlist.length; i++) {
     floor.x = 500 * Math.random();
     floor.y = 900 - i * floorlist_distance;
     floor.force = { min: 30, mul: 1.1, max: 50 };
+    floor.force = { min: 50, mul: 1.1, max: 50 };
 
     //floor.regY = -20;
     stage.addChild(floor);
@@ -193,6 +194,8 @@ function MoveScreenUp() {
     if (sprite.y < 300 && sprite.vy < 0) {
 
         var deltaY = 300 - sprite.y;
+
+        background.y += deltaY /  100;
 
         deltaY = (deltaY > 30) ? 30 : deltaY;
         
