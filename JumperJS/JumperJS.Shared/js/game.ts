@@ -271,4 +271,4 @@ createjs.Sound.initializeDefaultPlugins();
 
 createjs.Sound.registerManifest(audiomanifest, "sounds/");
 
-createjs.Sound.play("game");
+createjs.Sound.play("game", { loop: -1 } );
