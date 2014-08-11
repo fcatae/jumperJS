@@ -6,6 +6,7 @@
     <SharedGUID>13b17d4f-4f5f-4009-b4ea-9b7d37d172af</SharedGUID>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)images\bg.png" />
     <Content Include="$(MSBuildThisFileDirectory)images\floor.png" />
     <Content Include="$(MSBuildThisFileDirectory)images\floor2.png" />
     <Content Include="$(MSBuildThisFileDirectory)images\mega.png" />

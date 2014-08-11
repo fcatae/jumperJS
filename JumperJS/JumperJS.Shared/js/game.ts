@@ -12,11 +12,18 @@ var canvas = document.getElementById("canvas");
 
 var stage = new createjs.Stage(canvas);
 
+// Text: megaman
 var text = new createjs.Text("Megaman", "70px Arial", "#ccc");
 text.x = 10;
 text.y = 30;
 stage.addChild(text);
 
+// Background
+var background = new createjs.Bitmap("images/bg.png");
+
+stage.addChild(background);
+
+// Floor data
 var floordata = {
     images: ["images/floor.png", "images/floor2.png"],
     frames: [[0, 0, 114, 18, 0], [0, 0, 114, 38, 1]],
