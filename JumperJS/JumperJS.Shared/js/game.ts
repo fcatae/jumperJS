@@ -190,7 +190,7 @@ function tick(event) {
 }
 
 function MoveScreenUp() {
-
+    
     if (sprite.y < 300 && sprite.vy < 0) {
 
         var deltaY = 300 - sprite.y;
@@ -208,6 +208,11 @@ function MoveScreenUp() {
             floor.y += deltaY;
         }
 
+    }
+
+    // finish the game
+    if (background.y > 0) {
+        background.y = 0;
     }
 }
 
