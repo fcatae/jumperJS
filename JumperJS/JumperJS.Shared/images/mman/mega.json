@@ -1,0 +1,27 @@
+{
+"images": ["mega.png"],
+"frames": [
+
+    [2, 2, 84, 143], 
+    [2, 147, 60, 143], 
+    [2, 292, 71, 143], 
+    [2, 437, 74, 143], 
+    [2, 582, 86, 144], 
+    [2, 728, 81, 144], 
+    [2, 874, 94, 143]
+],
+"animations": {
+    
+        "m0":[0], 
+        "m1":[1], 
+        "m2":[2], 
+        "m3":[3], 
+        "m4":[4], 
+        "m5":[5], 
+        "m6":[6]
+},
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:288bfbb614c917c75401d391a2dedbb5:5c9208eab2b8dca61aa636adf8f6bb29:d8e8ffa8b43f153744917e412854a843$",
+        "Created with TexturePacker (http://www.texturepacker.com) for EaselJS"
+]
+}
