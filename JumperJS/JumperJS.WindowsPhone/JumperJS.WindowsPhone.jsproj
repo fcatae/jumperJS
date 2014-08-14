@@ -59,6 +59,12 @@
     <Content Include="css\ui-themed.css" />
     <Content Include="css\ui-themed.theme-dark.css" />
     <Content Include="css\ui-themed.theme-light.css" />
+    <Content Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
+    <Content Include="Scripts\typings\createjs\createjs.d.ts" />
+    <Content Include="Scripts\typings\easeljs\easeljs.d.ts" />
+    <Content Include="Scripts\typings\preloadjs\preloadjs.d.ts" />
+    <Content Include="Scripts\typings\soundjs\soundjs.d.ts" />
+    <Content Include="Scripts\typings\tweenjs\tweenjs.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="Microsoft.Phone.WinJS.2.1, Version=1.0" />
