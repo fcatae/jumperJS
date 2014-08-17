@@ -18,13 +18,18 @@ text.x = 10;
 text.y = 30;
 stage.addChild(text);
 
+var a = document.querySelector("body").clientWidth;
+var b = document.querySelector("body").clientHeight;
+
 canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 // Background
 var background = new createjs.Bitmap("images/bg.png");
 
 var size = background.getBounds().height;
-background.y = -4255 + window.innerHeight;// 800;
+background.x = window.innerWidth - 480;
+background.y = -4255 + window.outerHeight + 3;// 800;
 stage.addChild(background);
 
 // Floor data

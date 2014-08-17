@@ -1,9 +1,12 @@
 ﻿
 
-a-ms-viewport {
+ms-viewport {
 width: 480px;
 height: 800px;
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
