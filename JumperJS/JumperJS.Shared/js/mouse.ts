@@ -1,16 +1,12 @@
 ﻿/// <reference path="../typings/createjs/createjs.d.ts" />
 /// <reference path="init.ts"/>
 
-var mousetarget = new createjs.Bitmap("images/target.png");
-stage.addChild(mousetarget);
+var mousetarget = { x: 0, y: 0 };
 
 window.onmousedown = function (evt) {
     mousetarget.x = evt.x;
     mousetarget.y = evt.y;
-
-    mousetarget.regX = mousetarget.getBounds().width / 2;
-    mousetarget.regY = mousetarget.getBounds().height / 2;
-
+    
     PlayerSimulateKeyboard();
 
 };

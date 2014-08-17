@@ -22,6 +22,7 @@
     <Content Include="$(MSBuildThisFileDirectory)js\keyboard.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\mouse.ts" />
     <Content Include="$(MSBuildThisFileDirectory)js\player.js" />
+    <Content Include="$(MSBuildThisFileDirectory)js\preload.ts" />
     <Content Include="$(MSBuildThisFileDirectory)js\sound.js" />
     <Content Include="$(MSBuildThisFileDirectory)sounds\gameover.mp3" />
     <Content Include="$(MSBuildThisFileDirectory)sounds\intro.mp3" />
