@@ -1,24 +1,6 @@
 ﻿///<reference path="../typings/createjs/createjs.d.ts" />
 ///<reference path="init.ts"/>
 
-// PREPARE TO REMOVE
-//// Text: megaman
-//var text = new createjs.Text("Megaman", "70px Arial", "#ccc");
-//text.x = 10;
-//text.y = 30;
-//stage.addChild(text);
-
-// PREPARE TO REMOVE
-//var a = document.querySelector("body").clientWidth;
-//var b = document.querySelector("body").clientHeight;
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-// PREPARE TO REMOVE
-// var size = background.getBounds().height;
-// background.x = window.innerWidth - 480;
-
 // Background
 var background = new createjs.Bitmap("images/bg.png");
 background.y = -4255 + window.outerHeight + 3;
