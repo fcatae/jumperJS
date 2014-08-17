@@ -20,7 +20,7 @@ stage.addChild(text);
 
 // Background
 var background = new createjs.Bitmap("images/bg.png");
-background.y = -12000 + 1200;
+background.y = -6808 + 1200;
 stage.addChild(background);
 
 // Floor data
