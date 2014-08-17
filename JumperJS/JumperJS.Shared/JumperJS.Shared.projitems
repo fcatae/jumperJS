@@ -18,8 +18,9 @@
     <Content Include="$(MSBuildThisFileDirectory)js\createjs-2013.12.12.min.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\default.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\game.ts" />
-    <Content Include="$(MSBuildThisFileDirectory)js\init.js" />
+    <Content Include="$(MSBuildThisFileDirectory)js\init.ts" />
     <Content Include="$(MSBuildThisFileDirectory)js\keyboard.js" />
+    <Content Include="$(MSBuildThisFileDirectory)js\mouse.ts" />
     <Content Include="$(MSBuildThisFileDirectory)js\player.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\sound.js" />
     <Content Include="$(MSBuildThisFileDirectory)sounds\gameover.mp3" />
