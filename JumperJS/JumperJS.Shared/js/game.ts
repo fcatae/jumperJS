@@ -1,33 +1,27 @@
 ﻿///<reference path="../typings/createjs/createjs.d.ts" />
+///<reference path="init.ts"/>
 
-var camera = {
-    y: 0
-};
+// PREPARE TO REMOVE
+//// Text: megaman
+//var text = new createjs.Text("Megaman", "70px Arial", "#ccc");
+//text.x = 10;
+//text.y = 30;
+//stage.addChild(text);
 
-var lastfloor = -1;
-
-var canvas = document.getElementById("canvas");
-
-var stage = new createjs.Stage(canvas);
-
-// Text: megaman
-var text = new createjs.Text("Megaman", "70px Arial", "#ccc");
-text.x = 10;
-text.y = 30;
-stage.addChild(text);
-
-var a = document.querySelector("body").clientWidth;
-var b = document.querySelector("body").clientHeight;
+// PREPARE TO REMOVE
+//var a = document.querySelector("body").clientWidth;
+//var b = document.querySelector("body").clientHeight;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+// PREPARE TO REMOVE
+// var size = background.getBounds().height;
+// background.x = window.innerWidth - 480;
+
 // Background
 var background = new createjs.Bitmap("images/bg.png");
-
-var size = background.getBounds().height;
-// background.x = window.innerWidth - 480;
-background.y = -4255 + window.outerHeight + 3;// 800;
+background.y = -4255 + window.outerHeight + 3;
 stage.addChild(background);
 
 // Floor data
@@ -45,9 +39,31 @@ var fsheet = new createjs.SpriteSheet(floordata);
 //floor.x = 0;
 //floor.y = 700;
 //floor.force = { min: 5, mul: .9 };
-
 //floor.regY = -20;
+
 stage.addChild(floor);
+
+// floor list
+var floorlist = new Array(7);
+var floorlist_distance = 200;
+var floorlist_respawn_distance = floorlist.length * floorlist_distance;
+
+for (var i = 0; i < floorlist.length; i++) {
+
+    var floor = new createjs.Sprite(fsheet, "normal");
+    floor.x = 500 * Math.random();
+    floor.y = 900 - i * floorlist_distance;
+    floor.force = { min: 30, mul: 1.1, max: 50 };
+    floor.force = { min: 50, mul: 1.1, max: 50 };
+
+    //floor.regY = -20;
+    stage.addChild(floor);
+    floorlist[i] = floor;
+}
+
+
+
+
 
 var texturedata = {
     "images": ["images/mega.png"],
@@ -69,6 +85,7 @@ var texturedata = {
 
 var sprite = new createjs.Container();
 
+window.showTarget = true;
 if (window.showTarget) {
     var target = new createjs.Bitmap("images/target.png");
     target.x = target.y = 0;
@@ -79,15 +96,14 @@ if (window.showTarget) {
 var ss = new createjs.SpriteSheet(texturedata);
 var spriteImage = new createjs.Sprite(ss, "jump");
 spriteImage.scaleX = spriteImage.scaleY = .8;
-spriteImage.regX = 70*spriteImage.scaleX/2;
-spriteImage.regY = 144*spriteImage.scaleY;
+spriteImage.regX = 70 * spriteImage.scaleX / 2;
+spriteImage.regY = 144 * spriteImage.scaleY;
 sprite.addChild(spriteImage);
 
 sprite.x = 50;
 
 stage.addChild(sprite);
 
-createjs.Ticker.addEventListener("tick", tick);
 
 sprite.vx = 0;
 
@@ -99,23 +115,12 @@ sprite.max_vy = 50;
 var currentState = (sprite.vy < 0) ? "jump" : "fall";
 spriteImage.gotoAndPlay(currentState);
 
-// floor list
-var floorlist = new Array(7);
-var floorlist_distance = 200;
-var floorlist_respawn_distance = floorlist.length * floorlist_distance;
 
-for (var i = 0; i < floorlist.length; i++) {
 
-    var floor = new createjs.Sprite(fsheet, "normal");
-    floor.x = 500 * Math.random();
-    floor.y = 900 - i * floorlist_distance;
-    floor.force = { min: 30, mul: 1.1, max: 50 };
-    floor.force = { min: 50, mul: 1.1, max: 50 };
+createjs.Ticker.addEventListener("tick", tick);
 
-    //floor.regY = -20;
-    stage.addChild(floor);
-    floorlist[i] = floor;
-}
+
+
 
 function tick(event) {
 
