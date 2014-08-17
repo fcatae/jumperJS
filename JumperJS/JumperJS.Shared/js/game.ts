@@ -18,9 +18,13 @@ text.x = 10;
 text.y = 30;
 stage.addChild(text);
 
+canvas.width = window.innerWidth;
+
 // Background
 var background = new createjs.Bitmap("images/bg.png");
-background.y = -6808 + 1200;
+
+var size = background.getBounds().height;
+background.y = -4255 + window.innerHeight;// 800;
 stage.addChild(background);
 
 // Floor data
@@ -273,7 +277,8 @@ var audiomanifest = [
 ];
 
 // HACK
-createjs.Sound.EXTENSION_MAP["wav"] = "mp3";
+// break on the phone
+// createjs.Sound.EXTENSION_MAP["wav"] = "mp3";
 
 createjs.Sound.initializeDefaultPlugins();
 

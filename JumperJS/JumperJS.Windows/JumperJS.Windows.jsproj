@@ -55,12 +55,10 @@
     <AppxManifest Include="package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <Content Include="default.html" />
     <Content Include="images\logo.png" />
     <Content Include="images\smalllogo.png" />
     <Content Include="images\splashscreen.png" />
     <Content Include="images\storelogo.png" />
-    <Content Include="css\default.css" />
     <Content Include="packages.config" />
     <Content Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <Content Include="Scripts\typings\createjs\createjs.d.ts" />
