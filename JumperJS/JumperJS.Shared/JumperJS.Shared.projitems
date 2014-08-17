@@ -18,6 +18,7 @@
     <Content Include="$(MSBuildThisFileDirectory)js\default.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\game.ts" />
     <Content Include="$(MSBuildThisFileDirectory)js\keyboard.js" />
+    <Content Include="$(MSBuildThisFileDirectory)js\sound.js" />
     <Content Include="$(MSBuildThisFileDirectory)sounds\gameover.mp3" />
     <Content Include="$(MSBuildThisFileDirectory)sounds\intro.mp3" />
     <Content Include="$(MSBuildThisFileDirectory)sounds\jump.wav" />
