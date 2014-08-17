@@ -1,7 +1,5 @@
 ﻿///<reference path="../typings/createjs/createjs.d.ts" />
 
-var keyboard = { left: false, right: false};
-
 var camera = {
     y: 0
 };
@@ -28,7 +26,7 @@ canvas.height = window.innerHeight;
 var background = new createjs.Bitmap("images/bg.png");
 
 var size = background.getBounds().height;
-background.x = window.innerWidth - 480;
+// background.x = window.innerWidth - 480;
 background.y = -4255 + window.outerHeight + 3;// 800;
 stage.addChild(background);
 
@@ -237,41 +235,6 @@ function Respawn() {
         }
     }
 }
-
-window.onkeydown = function (evt) {
-
-    var code = evt.keyCode;
-
-    switch (code) {
-        case 39: //left 
-            keyboard.left = true;
-            break;
-
-        case 37: //right
-            keyboard.right= true;
-            break;
-
-    }
-
-}
-
-window.onkeyup = function (evt) {
-
-    var code = evt.keyCode;
-
-    switch (code) {
-        case 39: //left 
-            keyboard.left = false;
-            break;
-
-        case 37: //right
-            keyboard.right = false;
-            break;
-
-    }
-
-}
-
 
 var audiomanifest = [
     { id: "jump", src: "jump.wav" }, 
