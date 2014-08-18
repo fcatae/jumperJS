@@ -14,6 +14,9 @@ var body = document.querySelector("body");
 resize();
 window.onresize = resize;
 
+var SCREEN_WIDTH = 0;
+var SCREEN_HEIGHT = 0;
+
 function resize() {
 
     var width = window.innerWidth;
@@ -21,4 +24,14 @@ function resize() {
     
     var ratio = window.innerWidth / 768;
     canvas.style.zoom = ratio;
+
+    SCREEN_WIDTH = 768;
+    SCREEN_HEIGHT = height / ratio;
+
+    if (window.background) {
+        canvas.height = SCREEN_HEIGHT + 4; 
+        background.y = -6808 + SCREEN_HEIGHT + 4;
+    }
+
 }
+

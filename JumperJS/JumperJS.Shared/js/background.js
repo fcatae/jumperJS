@@ -1,7 +1,7 @@
 ﻿
 // Background
 var background = new createjs.Bitmap("images/bg.png");
-background.y = -6808 + window.outerHeight + 3;
+background.y = -6808 + 1200; // SCREEN_HEIGHT;
 stage.addChild(background);
 
 // Floor data
