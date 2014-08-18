@@ -11,14 +11,14 @@ var stage = new createjs.Stage(canvas);
 
 var body = document.querySelector("body");
 
-var width = window.innerWidth;
-var height = window.innerHeight;
+resize();
+window.onresize = resize;
 
-canvas.width = width;
-canvas.height = height;
+function resize() {
 
-window.onresize = function () {
-
-    //body.style.zoom = window.innerWidth / 400;
-
-};
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    
+    var ratio = window.innerWidth / 768;
+    canvas.style.zoom = ratio;
+}
