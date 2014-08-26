@@ -10,3 +10,7 @@ html, body {
   overflow: hidden;
   background-color: black;
 }
+
+* {
+  -ms-touch-action: none; /* Disables all pan/zoom behaviors and fire pointer events in JavaScript instead. */
+}
