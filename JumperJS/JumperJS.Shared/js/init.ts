@@ -15,6 +15,7 @@ window.onresize = resize;
 
 var SCREEN_WIDTH = 0;
 var SCREEN_HEIGHT = 0;
+var SCREEN_ZOOM = 1;
 var positiontop = -6808 + 4;
 
 resize();
@@ -34,7 +35,7 @@ function resize() {
 
     SCREEN_WIDTH = 768;
     SCREEN_HEIGHT = height / ratio;
-
+    SCREEN_ZOOM = ratio;
 
     canvas.height = SCREEN_HEIGHT; 
 

@@ -7,6 +7,8 @@ function game_init() {
 
 function tick(event) {
 
+    mouse.update();
+
     // gravidade
     sprite.vy += sprite.ay;
 
