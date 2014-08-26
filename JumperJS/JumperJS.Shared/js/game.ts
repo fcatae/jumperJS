@@ -1,7 +1,9 @@
 ﻿///<reference path="../typings/createjs/createjs.d.ts" />
 ///<reference path="init.ts"/>
 
-createjs.Ticker.addEventListener("tick", tick);
+function game_init() {
+    createjs.Ticker.addEventListener("tick", tick);
+}
 
 function tick(event) {
 

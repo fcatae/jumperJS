@@ -11,11 +11,11 @@ var stage = new createjs.Stage(canvas);
 
 var body = document.querySelector("body");
 
-resize();
 window.onresize = resize;
 
 var SCREEN_WIDTH = 0;
 var SCREEN_HEIGHT = 0;
+var positiontop = -6808 + 4;
 
 resize();
 
@@ -23,21 +23,37 @@ function resize() {
 
     var width = window.innerWidth;
     var height = window.innerHeight;
-    var oldheight = SCREEN_HEIGHT;
     
-    window.outerWidth
+    //if ((width / height) > 3.0 / 4.0) {
+    //    width = 3 * height / 4;
+    //}
 
-    var ratio = window.innerWidth / 768;
+    var ratio = width / 768;
+    
     canvas.style.zoom = ratio;
 
     SCREEN_WIDTH = 768;
     SCREEN_HEIGHT = height / ratio;
 
+
     canvas.height = SCREEN_HEIGHT; 
 
     if (window.background)
     {
-        background.y = -6808 + SCREEN_HEIGHT - oldheight + 4;
+        background.y = positiontop + SCREEN_HEIGHT;
     }
+
+}
+
+
+
+
+window.onload = function () {
+
+
+    background_init();
+
+    player_init();
+    game_init();
 
 }

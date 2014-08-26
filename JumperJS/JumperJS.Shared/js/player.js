@@ -18,6 +18,13 @@ var texturedata = {
 };
 
 var sprite = new createjs.Container();
+var currentState;
+var ss;
+var spriteImage;
+
+
+
+function player_init() {
 
 if (window.showTarget) {
     var target = new createjs.Bitmap("images/target.png");
@@ -26,8 +33,8 @@ if (window.showTarget) {
     sprite.addChild(target);
 }
 
-var ss = new createjs.SpriteSheet(texturedata);
-var spriteImage = new createjs.Sprite(ss, "jump");
+ss = new createjs.SpriteSheet(texturedata);
+spriteImage = new createjs.Sprite(ss, "jump");
 spriteImage.scaleX = spriteImage.scaleY = .8;
 spriteImage.regX = 70*spriteImage.scaleX/2;
 spriteImage.regY = 144*spriteImage.scaleY;
@@ -44,5 +51,7 @@ sprite.vy = 1;
 sprite.ay = 3;
 sprite.max_vy = 50;
 
-var currentState = (sprite.vy < 0) ? "jump" : "fall";
+currentState = (sprite.vy < 0) ? "jump" : "fall";
 spriteImage.gotoAndPlay(currentState);
+
+}

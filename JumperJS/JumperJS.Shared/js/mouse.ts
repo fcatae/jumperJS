@@ -21,6 +21,10 @@ window.onmouseup = function (evt) {
 
 function PlayerSimulateKeyboard() {
 
+    if (!sprite) {
+        return;
+    }
+
     if (mousetarget.x > sprite.x) {
         keyboard.left = false;
         keyboard.right = true;
