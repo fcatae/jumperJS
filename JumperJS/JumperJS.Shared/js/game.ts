@@ -91,8 +91,9 @@ function MoveScreenUp() {
     if (sprite.y < 300 && sprite.vy < 0) {
 
         var deltaY = 300 - sprite.y;
-
-        background.y += deltaY /  100;
+        var speedY = deltaY / 100;
+        background.y += speedY;
+        positiontop += speedY;
 
         deltaY = (deltaY > 30) ? 30 : deltaY;
         
