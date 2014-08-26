@@ -17,21 +17,27 @@ window.onresize = resize;
 var SCREEN_WIDTH = 0;
 var SCREEN_HEIGHT = 0;
 
+resize();
+
 function resize() {
 
     var width = window.innerWidth;
     var height = window.innerHeight;
+    var oldheight = SCREEN_HEIGHT;
     
+    window.outerWidth
+
     var ratio = window.innerWidth / 768;
     canvas.style.zoom = ratio;
 
     SCREEN_WIDTH = 768;
     SCREEN_HEIGHT = height / ratio;
 
-    if (window.background) {
-        canvas.height = SCREEN_HEIGHT + 4; 
-        background.y = -6808 + SCREEN_HEIGHT + 4;
+    canvas.height = SCREEN_HEIGHT; 
+
+    if (window.background)
+    {
+        background.y = -6808 + SCREEN_HEIGHT - oldheight + 4;
     }
 
 }
-
