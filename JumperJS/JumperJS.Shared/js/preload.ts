@@ -23,5 +23,4 @@ queue.loadManifest(manifest);
 
 function handleComplete() {
     init_init();
-    sound_init();
 }

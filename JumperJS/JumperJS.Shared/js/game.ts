@@ -82,11 +82,11 @@ function tick(event) {
 
         MoveScreenUp();
         Respawn();
+        CheckPlayerIsAlive();
+
     }
 
     stage.update();
-
-    CheckPlayerIsAlive();
 
 }
 
@@ -156,11 +156,16 @@ function Particles() {
 }
 
 
-
 function restartGame() {
 
-    //isGameOver = false;
-    //player_isActive = true;
+    mouse_restart();
+    keyboard_restart();
+    background_restart();
+    player_restart();
+    sound_restart();
+
+    isGameOver = false;
+    player_isActive = true;
 
 }
 

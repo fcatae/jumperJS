@@ -1,5 +1,10 @@
 ﻿var keyboard = { left: false, right: false };
 
+function keyboard_restart() {
+    keyboard.left = false;
+    keyboard.right = false;
+}
+
 window.onkeydown = function (evt) {
 
     var code = evt.keyCode;

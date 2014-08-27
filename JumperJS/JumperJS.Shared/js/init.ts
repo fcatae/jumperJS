@@ -54,6 +54,10 @@ window.onload = function () {
 function init_init() {
     background_init();
 
+    sound_init();
+
     player_init();
     game_init();
 }
+
+

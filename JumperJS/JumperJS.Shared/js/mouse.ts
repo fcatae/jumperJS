@@ -1,6 +1,10 @@
 ﻿/// <reference path="../typings/createjs/createjs.d.ts" />
 /// <reference path="init.ts"/>
 
+function mouse_restart() {
+    mousetarget.active = false;
+}
+
 var mouse = {
     update: function () {
 

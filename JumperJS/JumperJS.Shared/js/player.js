@@ -41,18 +41,32 @@ spriteImage.regX = 70*spriteImage.scaleX/2;
 spriteImage.regY = 144*spriteImage.scaleY;
 sprite.addChild(spriteImage);
 
-sprite.x = 50;
-
 stage.addChild(sprite);
 
-sprite.vx = 0;
+//sprite.x = 50;
+//sprite.vx = 0;
 
-// queda
-sprite.vy = 1;
-sprite.ay = 3;
-sprite.max_vy = 50;
+//// queda
+//sprite.vy = 1;
+//sprite.ay = 3;
+//sprite.max_vy = 50;
 
-currentState = (sprite.vy < 0) ? "jump" : "fall";
-spriteImage.gotoAndPlay(currentState);
+//currentState = (sprite.vy < 0) ? "jump" : "fall";
+//spriteImage.gotoAndPlay(currentState);
 
+player_restart();
+}
+
+function player_restart() {
+    sprite.x = 50;
+    sprite.y = 0;
+    sprite.vx = 0;
+
+    // queda
+    sprite.vy = 1;
+    sprite.ay = 3;
+    sprite.max_vy = 50;
+
+    currentState = (sprite.vy < 0) ? "jump" : "fall";
+    spriteImage.gotoAndPlay(currentState);
 }
