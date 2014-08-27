@@ -17,6 +17,7 @@ var texturedata = {
     }
 };
 
+var player_isActive = true;
 var sprite = new createjs.Container();
 var currentState;
 var ss;

@@ -7,83 +7,161 @@ function game_init() {
 
 function tick(event) {
 
-    mouse.update();
+    if (player_isActive) {
+        mouse.update();
 
-    // gravidade
-    sprite.vy += sprite.ay;
+        // gravidade
+        sprite.vy += sprite.ay;
 
-    var delta = sprite.vy;
+        var delta = sprite.vy;
 
-    if (sprite.vy > sprite.max_vy) {
-        delta = sprite.max_vy;
-    } else if (sprite.vy < -sprite.max_vy) {
-        delta = -sprite.max_vy;
-    }
-    
-    sprite.y += delta;
-
-    for (var i = 0; i < floorlist.length; i++) {
-
-        var floor = floorlist[i];
-
-        var position = sprite.localToLocal(0, 0, floor);
-
-        if (position.y > 0 && (position.y < sprite.max_vy) && (sprite.vy > 0))
-        {
-            if (position.x > -20 && position.x < 134) {
-                sprite.y = floor.y;
-                
-                if (i === lastfloor) {
-                    sprite.vy = -floor.force.mul * sprite.vy;
-                } else {
-                    sprite.vy = -floor.force.min;
-                }
-                lastfloor = i;
-
-                floor.gotoAndPlay("bounce");
-                createjs.Sound.play("jump");
-
-                break;
-            }
+        if (sprite.vy > sprite.max_vy) {
+            delta = sprite.max_vy;
+        } else if (sprite.vy < -sprite.max_vy) {
+            delta = -sprite.max_vy;
         }
 
-    }
+        sprite.y += delta;
 
-    // update the state
-    var nextState = (sprite.vy < 0) ? "jump" : "fall";
+        for (var i = 0; i < floorlist.length; i++) {
 
-    // TODO: REMOVE IT LATER
-    if (sprite.lasty == sprite.y ) {
-        nextState = "stop";
-    }
-    sprite.lasty = sprite.y;
+            var floor = floorlist[i];
 
-    if (currentState != nextState) {
-        spriteImage.gotoAndPlay(nextState);
-        currentState = nextState;
-    }
+            var position = sprite.localToLocal(0, 0, floor);
 
-    // handle keyboard
-    if (keyboard.right) {
-        sprite.vx = 10;
-    }
-    if (keyboard.left) {
-        sprite.vx = -10;
-    }
-    sprite.x += sprite.vx;
+            if (position.y > 0 && (position.y < sprite.max_vy) && (sprite.vy > 0)) {
+                if (position.x > -20 && position.x < 134) {
+                    sprite.y = floor.y;
 
-    if (sprite.vx > 0) {
-        sprite.vx--;
-    }
+                    if (i === lastfloor) {
+                        sprite.vy = -floor.force.mul * sprite.vy;
+                    } else {
+                        sprite.vy = -floor.force.min;
+                    }
+                    lastfloor = i;
 
-    if (sprite.vx < 0) {
-        sprite.vx++;
-    }
+                    floor.gotoAndPlay("bounce");
+                    createjs.Sound.play("jump");
 
-    MoveScreenUp();
-    Respawn();
+                    break;
+                }
+            }
+
+        }
+
+        // update the state
+        var nextState = (sprite.vy < 0) ? "jump" : "fall";
+
+        // TODO: REMOVE IT LATER
+        //if (sprite.lasty == sprite.y) {
+        //    nextState = "stop";
+        //}
+        sprite.lasty = sprite.y;
+
+        if (currentState != nextState) {
+            spriteImage.gotoAndPlay(nextState);
+            currentState = nextState;
+        }
+
+        // handle keyboard
+        if (keyboard.right) {
+            sprite.vx = 10;
+        }
+        if (keyboard.left) {
+            sprite.vx = -10;
+        }
+        sprite.x += sprite.vx;
+
+        if (sprite.vx > 0) {
+            sprite.vx--;
+        }
+
+        if (sprite.vx < 0) {
+            sprite.vx++;
+        }
+
+        MoveScreenUp();
+        Respawn();
+    }
 
     stage.update();
+
+    CheckPlayerIsAlive();
+
+}
+
+var line = null;
+
+function CheckPlayerIsAlive() {
+
+    var LOD = SCREEN_HEIGHT + 160;// - 600;
+
+    if (line == null) {
+        line = (new createjs.Graphics()).beginStroke("red").setStrokeStyle(3).moveTo(0, LOD - 160).lineTo(768, LOD - 160);
+        stage.addChild(new createjs.Shape(line));
+    }
+
+    if (sprite.y > LOD) {
+        GameOver();
+    }
+}
+
+var isGameOver = false;
+function GameOver() {
+    if (!isGameOver) {
+        isGameOver = true;
+        player_isActive = false;
+
+        createjs.Sound.stop();
+        createjs.Sound.play("death");
+        createjs.Sound.play("gameover", null, 500);
+
+        Particles();
+
+        createjs.Tween.get(stage).wait(2000).call(restartGame);        
+
+    }
+}
+
+var particles = new Array(5);
+
+function Particles() {
+
+    for (var i = 0; i < particles.length; i++) {
+
+        var partic = particles[i];
+
+        if (partic == null) {
+            partic = new createjs.Bitmap("images/spark.png");
+            particles[i] = partic;
+        }
+
+        partic.x = sprite.x;
+        partic.y = sprite.y;
+        partic.alpha = 1;
+        partic.scaleX = 1;
+        partic.scaleY = 1;
+        partic.visible = true;
+        partic.y = SCREEN_HEIGHT;
+
+        stage.addChild(partic);
+
+        var newa = 3.1415 * (45 - 90 * (i + .5)/particles.length) / 180;
+        var newm = 300;
+        var newx = partic.x + newm * Math.sin(newa);
+        var newy = partic.y - newm * Math.cos(newa);
+
+        createjs.Tween.get(partic).to({ x: newx, y: newy, alpha: 1, scaleX: .8, scaleY: .8 }, 2000).to({ visible: false });
+    }
+}
+
+
+
+function restartGame() {
+
+    //isGameOver = false;
+    //player_isActive = true;
+
 }
 
 function MoveScreenUp() {
