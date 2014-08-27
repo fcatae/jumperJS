@@ -11,8 +11,27 @@ html, body {
   background-color: black;
 }
 
+#restartgame {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    z-index: 1;
+    visibility: hidden;
+
+    transition-duration: 5s;
+    transition-property: opacity;
+}
+
+#restartgame.noshow {
+    visibility: visible;
+    opacity: .5;
+}
+
 canvas {
     position: fixed;
+    z-index: 0;
 }
 
 * {

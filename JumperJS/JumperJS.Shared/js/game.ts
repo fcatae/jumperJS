@@ -116,6 +116,9 @@ function GameOver() {
         createjs.Sound.play("death");
         createjs.Sound.play("gameover", null, 500);
 
+        var restartgame = document.getElementById("restartgame");
+        restartgame.className = "noshow";
+
         Particles();
 
         createjs.Tween.get(stage).wait(2000).call(restartGame);        
@@ -151,21 +154,32 @@ function Particles() {
         var newx = partic.x + newm * Math.sin(newa);
         var newy = partic.y - newm * Math.cos(newa);
 
+
         createjs.Tween.get(partic).to({ x: newx, y: newy, alpha: 0, scaleX: .8, scaleY: .8 }, 2000).to({ visible: false });
     }
 }
 
 
 function restartGame() {
+    
+    var restartgame = document.getElementById("restartgame");
 
-    mouse_restart();
-    keyboard_restart();
-    background_restart();
-    player_restart();
-    sound_restart();
+    restartgame.onclick = function () {
 
-    isGameOver = false;
-    player_isActive = true;
+        restartgame.onclick = null;
+        restartgame.className = "";
+
+        mouse_restart();
+        keyboard_restart();
+        background_restart();
+        player_restart();
+        sound_restart();
+
+        isGameOver = false;
+        player_isActive = true;
+
+    };
+
 
 }
 
