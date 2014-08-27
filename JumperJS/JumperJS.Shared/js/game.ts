@@ -96,10 +96,10 @@ function CheckPlayerIsAlive() {
 
     var LOD = SCREEN_HEIGHT + 160;// - 600;
 
-    if (line == null) {
-        line = (new createjs.Graphics()).beginStroke("red").setStrokeStyle(3).moveTo(0, LOD - 160).lineTo(768, LOD - 160);
-        stage.addChild(new createjs.Shape(line));
-    }
+    //if (line == null) {
+    //    line = (new createjs.Graphics()).beginStroke("red").setStrokeStyle(3).moveTo(0, LOD - 160).lineTo(768, LOD - 160);
+    //    stage.addChild(new createjs.Shape(line));
+    //}
 
     if (sprite.y > LOD) {
         GameOver();
