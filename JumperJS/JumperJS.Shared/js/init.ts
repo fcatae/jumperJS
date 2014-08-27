@@ -47,14 +47,13 @@ function resize() {
 }
 
 
-
-
 window.onload = function () {
+    //init_init();
+}
 
-
+function init_init() {
     background_init();
 
     player_init();
     game_init();
-
 }
