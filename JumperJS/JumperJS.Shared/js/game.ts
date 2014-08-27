@@ -151,7 +151,7 @@ function Particles() {
         var newx = partic.x + newm * Math.sin(newa);
         var newy = partic.y - newm * Math.cos(newa);
 
-        createjs.Tween.get(partic).to({ x: newx, y: newy, alpha: 1, scaleX: .8, scaleY: .8 }, 2000).to({ visible: false });
+        createjs.Tween.get(partic).to({ x: newx, y: newy, alpha: 0, scaleX: .8, scaleY: .8 }, 2000).to({ visible: false });
     }
 }
 
