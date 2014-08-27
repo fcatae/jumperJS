@@ -11,3 +11,4 @@ function handleComplete() {
     createjs.Sound.play("sound");
     var image = queue.getResult("myImage");
 }
+
