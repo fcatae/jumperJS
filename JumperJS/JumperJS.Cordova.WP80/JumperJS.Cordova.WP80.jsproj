@@ -99,6 +99,31 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="images\" />
+    <Content Include="game\default.css" />
+    <Content Include="game\default.html" />
+    <Content Include="game\images\bg.png" />
+    <Content Include="game\images\floor Big.png" />
+    <Content Include="game\images\floor.png" />
+    <Content Include="game\images\floor2.png" />
+    <Content Include="game\images\mega.png" />
+    <Content Include="game\images\megaman.png" />
+    <Content Include="game\images\spark.png" />
+    <Content Include="game\images\target.png" />
+    <Content Include="game\js\background.js" />
+    <Content Include="game\js\createjs-2013.12.12.min.js" />
+    <Content Include="game\js\default.js" />
+    <Content Include="game\js\game.js" />
+    <Content Include="game\js\init.js" />
+    <Content Include="game\js\keyboard.js" />
+    <Content Include="game\js\mouse.js" />
+    <Content Include="game\js\player.js" />
+    <Content Include="game\js\preload.js" />
+    <Content Include="game\js\sound.js" />
+    <Content Include="game\sounds\death.mp3" />
+    <Content Include="game\sounds\gameover.mp3" />
+    <Content Include="game\sounds\intro.mp3" />
+    <Content Include="game\sounds\jump.mp3" />
+    <Content Include="game\sounds\sparkman.mp3" />
     <Content Include="merges\android\scripts\android2.3-jscompat.js" />
     <Content Include="merges\android\scripts\platformOverrides.js" />
     <Folder Include="merges\ios\" />
