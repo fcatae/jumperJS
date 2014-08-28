@@ -1,7 +1,7 @@
-﻿/*@-ms-viewport {
-width: 480px;
-height: 800px;
-}*/
+﻿@-ms-viewport {
+    width: 480px;
+    height: 800px;
+}
 
 html, body {
   width:  100%;
