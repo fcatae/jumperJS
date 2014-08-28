@@ -7,20 +7,25 @@
         //{ id: "target", src: "images/target.png" },
 
     // Sounds
-        { id: "jump", src: "sounds/jump.mp3" },
+        //{ id: "jump", src: "sounds/jump.mp3" },
         { id: "death", src: "sounds/death.mp3" },
 //        { id: "intro", src: "sounds/intro.mp3" },
         { id: "game", src: "sounds/sparkman.mp3" },
         { id: "gameover", src: "sounds/gameover.mp3" }
     ];
 
-var queue = new createjs.LoadQueue();
-queue.installPlugin(createjs.Sound);
+// PRELOAD
+//var queue = new createjs.LoadQueue();
+//queue.installPlugin(createjs.Sound);
+//queue.on("complete", handleComplete, this);
+//queue.loadManifest(manifest);
 
-queue.on("complete", handleComplete, this);
-
-queue.loadManifest(manifest);
+// SoundJS
+createjs.Sound.initializeDefaultPlugins();
+createjs.Sound.registerManifest(manifest);
 
 function handleComplete() {
-    init_init();
+    //init_init();
 }
+
+//init_init();
