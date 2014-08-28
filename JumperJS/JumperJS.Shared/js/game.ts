@@ -114,14 +114,19 @@ function GameOver() {
 
         createjs.Sound.stop();
         createjs.Sound.play("death");
-        createjs.Sound.play("gameover", null, 500);
 
-        var restartgame = document.getElementById("restartgame");
-        restartgame.className = "noshow";
+        createjs.Tween.get(stage)
+            .wait(100)
+            .call(function () {
 
-        Particles();
+                var restartgame = document.getElementById("restartgame");
+                restartgame.className = "noshow";
 
-        createjs.Tween.get(stage).wait(2000).call(restartGame);        
+                Particles();
+
+                createjs.Sound.play("gameover", null, 500);
+            })
+            .wait(2000).call(restartGame);        
 
     }
 }
