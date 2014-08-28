@@ -21,7 +21,6 @@ var positiontop = -6808 + 4;
 resize();
 
 function resize() {
-
     var width = window.innerWidth;
     var height = window.innerHeight;
     
@@ -30,9 +29,9 @@ function resize() {
     //}
 
     var ratio = width / 768;
-    
-    canvas.style.zoom = ratio;
 
+    canvas.style.zoom = ratio;
+    
     SCREEN_WIDTH = 768;
     SCREEN_HEIGHT = height / ratio;
     SCREEN_ZOOM = ratio;
@@ -48,7 +47,7 @@ function resize() {
 
 
 window.onload = function () {
-    //init_init();
+    init_init();
 }
 
 function init_init() {
