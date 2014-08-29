@@ -1,14 +1,4 @@
-﻿function log(text) {
-
-    if (!logPane.textContent) {
-        logPane.textContent = text;
-        return;
-    }
-    
-    logPane.textContent += "\n" + text;
-}
-
-var BgAudio = BgAudio || {};
+﻿var BgAudio = BgAudio || {};
 
 (function () {
     
@@ -78,8 +68,4 @@ var BgAudio = BgAudio || {};
 
 window.BgAudio = BgAudio;
 
-BgAudio.play("sounds/sparkman.mp3", 73000);
-
-setInterval(function () {
-    BgAudio.play("sounds/sparkman.mp3", 73000);
-}, 10000);
+// Example: BgAudio.play("sounds/sparkman.mp3", 73000);
