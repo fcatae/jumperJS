@@ -4,10 +4,8 @@
 // and then run "window.location.reload()" in the JavaScript Console.
 (function () {
     "use strict";
-
-    //location.assign("game/default.html");
-
-    document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
+    
+    document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 
     function onDeviceReady() {
         // Handle the Cordova pause and resume events
@@ -25,6 +23,5 @@
     function onResume() {
         // TODO: This application has been reactivated. Restore application state here.
         BgAudio.play("sounds/sparkman.mp3", 70000);
-        canvas.width = 300;
     };
 } )();
