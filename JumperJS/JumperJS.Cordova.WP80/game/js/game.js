@@ -101,8 +101,6 @@ function CheckPlayerIsAlive() {
     //    stage.addChild(new createjs.Shape(line));
     //}
 
-    return;
-
     if (sprite.y > LOD) {
         GameOver();
     }
