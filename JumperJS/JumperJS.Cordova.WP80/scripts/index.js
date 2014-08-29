@@ -24,5 +24,7 @@
 
     function onResume() {
         // TODO: This application has been reactivated. Restore application state here.
+        BgAudio.play("sounds/sparkman.mp3", 70000);
+        canvas.width = 300;
     };
 } )();

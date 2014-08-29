@@ -58,7 +58,9 @@
     }
 
     BgAudio.play = function (src, duration) {
-        _init(src, duration);
+        if (src) {
+            _init(src, duration);
+        }
         play();
     }
 
