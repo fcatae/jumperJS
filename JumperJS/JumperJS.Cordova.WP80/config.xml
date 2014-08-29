@@ -7,7 +7,7 @@
   <author href="http://cordova.io" email="dev@cordova.apache.org">
     Apache Cordova Team
   </author>
-  <content src="game\default.html" />
+  <content src="index.html" />
   <access origin="*" />
   <preference name="SplashScreen" value="screen" />
   <vs:features />

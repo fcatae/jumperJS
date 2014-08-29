@@ -27,6 +27,7 @@
 <body>
     <canvas id="canvas" width="786" height="1280"></canvas> 
     <div id="restartgame" ></div>
+    <div id="logPane"></div>
     <script src="js/preload.js"></script>
     <script src="js/init.js"></script>
     <script src="js/background.js"></script>
@@ -35,9 +36,11 @@
     <script src="js/keyboard.js"></script>
     <script src="js/mouse.js"></script>
     <script src="js/game.js"></script>
+    <script src="bgaudio.js"></script>
     <audio id="audgame" style="z-index: -10" controls="controls">
         <source src="sounds/sparkman.mp3" type="audio/mpeg" />
     </audio>
     <button onclick="document.getElementById('audgame').currentTime = 0;">Stop</button>
+
 </body>
 </html>

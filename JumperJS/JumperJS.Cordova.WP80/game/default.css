@@ -24,6 +24,17 @@ html, body {
     transition-property: opacity;
 }
 
+#logPane {
+    z-index: 100;
+    background-color: black;
+    opacity: .4;
+    top: 60%;
+    height: 40%;
+    width: 100%;
+    position: fixed;
+    color: white;
+}
+
 #restartgame.noshow {
     visibility: visible;
     opacity: .5;

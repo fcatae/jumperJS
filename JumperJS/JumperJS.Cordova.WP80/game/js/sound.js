@@ -8,7 +8,7 @@ function sound_init() {
 function sound_restart() {
 
     createjs.Sound.stop();
-    var inst = createjs.Sound.play("game", { loop: -1 });
+    //var inst = createjs.Sound.play("game", { loop: -1 });
     //inst.pause();
     //inst.play();
 

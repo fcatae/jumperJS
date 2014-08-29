@@ -98,6 +98,7 @@
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="game\bgaudio.js" />
     <Content Include="scripts\soundjsWP80.js" />
     <Folder Include="images\" />
     <Content Include="game\default.css" />
