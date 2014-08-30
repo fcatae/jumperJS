@@ -99,6 +99,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="game\bgaudio.js" />
+    <Content Include="res\cert\wp\screenshot01.png" />
+    <Content Include="res\cert\wp\store300.png" />
+    <Content Include="res\cert\wp\template.png" />
+    <Content Include="res\cert\wp\WindowsApplicationImages\Assets\ApplicationIcon.png" />
+    <Content Include="res\cert\wp\WindowsApplicationImages\Assets\Tiles\FlipCycleTileLarge.png" />
+    <Content Include="res\cert\wp\WindowsApplicationImages\Assets\Tiles\FlipCycleTileMedium.png" />
+    <Content Include="res\cert\wp\WindowsApplicationImages\Assets\Tiles\FlipCycleTileSmall.png" />
+    <Content Include="res\cert\wp\WindowsApplicationImages\Assets\Tiles\IconicTileMediumLarge.png" />
+    <Content Include="res\cert\wp\WindowsApplicationImages\Assets\Tiles\IconicTileSmall.png" />
+    <Content Include="res\cert\wp\WindowsApplicationImages\SplashScreenImage.jpg" />
+    <Content Include="res\cert\wp\WindowsApplicationImages\SquareIcon.jpg" />
+    <Content Include="res\cert\wp\WindowsApplicationImages\StoreIcon.png" />
+    <Content Include="res\cert\wp\WindowsApplicationImages\StorePromo.png" />
+    <Content Include="res\cert\wp\WindowsApplicationImages\WideIcon.jpg" />
     <Content Include="scripts\soundjsWP80.js" />
     <Folder Include="images\" />
     <Content Include="game\default.css" />
