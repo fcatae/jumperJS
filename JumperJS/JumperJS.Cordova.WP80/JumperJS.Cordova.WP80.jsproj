@@ -137,7 +137,6 @@
     <Folder Include="res\screens\android\" />
     <Folder Include="res\screens\ios\" />
     <Folder Include="res\screens\windows8\" />
-    <Folder Include="res\screens\wp8\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="config.xml">
