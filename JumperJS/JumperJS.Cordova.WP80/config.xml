@@ -12,5 +12,9 @@
   <preference name="SplashScreen" value="screen" />
   <preference name="Orientation" value="portrait" />
   <vs:features />
-  <vs:platformSpecificValues />
+  <vs:platformSpecificValues>
+    <vs:platformSpecificWidget platformName="windows8">
+      <vs:name>JumperJS</vs:name>
+    </vs:platformSpecificWidget>
+  </vs:platformSpecificValues>
 </widget>

@@ -1,4 +1,4 @@
-﻿var background = new createjs.Bitmap("images/bg.png");
+﻿var background = new createjs.Bitmap("images/bg.jpg");
 
 // Floor data
 var floordata = {

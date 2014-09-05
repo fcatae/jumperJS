@@ -99,6 +99,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="game\bgaudio.js" />
+    <Content Include="game\images\bg.jpg" />
     <Content Include="res\cert\wp\screenshot01.png" />
     <Content Include="res\cert\wp\store300.png" />
     <Content Include="res\cert\wp\template.png" />
@@ -117,7 +118,6 @@
     <Folder Include="images\" />
     <Content Include="game\default.css" />
     <Content Include="game\default.html" />
-    <Content Include="game\images\bg.png" />
     <Content Include="game\images\floor Big.png" />
     <Content Include="game\images\floor.png" />
     <Content Include="game\images\floor2.png" />
