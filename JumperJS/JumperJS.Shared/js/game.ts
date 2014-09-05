@@ -112,6 +112,7 @@ function GameOver() {
         isGameOver = true;
         player_isActive = false;
 
+        BgAudio.stop();
         createjs.Sound.stop();
         createjs.Sound.play("death");
 
