@@ -57,6 +57,7 @@
     <Content Include="images\Square44x44Logo.scale-240.png" />
     <Content Include="images\Square71x71Logo.scale-240.png" />
     <Content Include="images\StoreLogo.scale-240.png" />
+    <Content Include="Scripts\host.js" />
     <None Include="Package.StoreAssociation.xml" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs\createjs.d.ts" />

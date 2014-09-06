@@ -6,13 +6,14 @@
     var _duration;
     var _cancelation;
 
-    function _init(src, duration) {
+    function _init(src, duration, playingHandler) {
         _duration = duration;
 
         if (_audio == null) {
             _audio = new Audio(src);
             _audio.loop = true;
             _audio.onpause = pauseHandler;
+            _audio.onplaying = playingHandler;
             document.body.appendChild(_audio);
         }
     };
@@ -61,9 +62,9 @@
         _audio.pause();
     }
 
-    BgAudio.play = function (src, duration) {
+    BgAudio.play = function (src, duration, playingHandler) {
         if (src) {
-            _init(src, duration);
+            _init(src, duration, playingHandler);
         }
         play();
     }

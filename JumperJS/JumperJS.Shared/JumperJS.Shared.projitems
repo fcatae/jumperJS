@@ -19,7 +19,6 @@
     <Content Include="$(MSBuildThisFileDirectory)js\background.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\createjs\easeljs-NEXT.min.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\createjs\preloadjs-NEXT.min.js" />
-    <Content Include="$(MSBuildThisFileDirectory)js\createjs\soundjs-NEXT.combined.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\createjs\soundjs-NEXT.min.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\createjs\tweenjs-NEXT.min.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\default.js" />

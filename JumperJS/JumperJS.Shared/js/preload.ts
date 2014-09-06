@@ -22,11 +22,32 @@ queue.on("complete", handleComplete, this);
 
 queue.loadManifest(manifest, true, "");
 
+var completePromise = null;
+var completeDone = false;
 
+function gameReady() {
+
+    completePromise && completePromise();
+    completeDone = true;
+    completePromise = null;
+
+}
 
 function handleComplete() {
 
     init_init();
+    //gameReady();
 
 }
 
+function preload_getPromise() {
+
+    return new WinJS.Promise(function (complete) {
+        completePromise = complete;
+
+        if (completeDone === true) {
+            complete();
+        }
+    });
+
+}
