@@ -102,10 +102,12 @@
             timeout = 0;
         } catch (e) {
             // assume it is working
-            if (timeout > 1000) { BgAudio.isReady = true; }
+            if (timeout > 5000) { BgAudio.isReady = true; canplayHandler(); }
+            else {
+                setTimeout(BgAudio.unpause, 250);
+                timeout += 250;
+            }
 
-            setTimeout(BgAudio.unpause, 250);
-            timeout += 250;
         }
         
     }

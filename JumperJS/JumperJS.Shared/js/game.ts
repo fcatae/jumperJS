@@ -127,9 +127,11 @@ function GameOver() {
         player_isActive = false;
 
         //game_stop();
-        BgAudio.stop();
-        createjs.Sound.stop();
-        createjs.Sound.play("death");
+        try {
+            BgAudio.stop();
+            createjs.Sound.stop();
+            createjs.Sound.play("death");
+        } catch (e) { };
 
         createjs.Tween.get(stage)
             .wait(100)
@@ -140,7 +142,9 @@ function GameOver() {
 
                 Particles();
 
-                createjs.Sound.play("gameover", null, 500);
+                try {
+                    createjs.Sound.play("gameover", null, 500);
+                } catch (e) { };
             })
             .wait(2000).call(restartGame);        
 

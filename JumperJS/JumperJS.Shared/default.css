@@ -30,15 +30,25 @@ html, body {
 #restartgame.pause_transition{
     visibility: visible;
     opacity: 0;
-    transition-duration: 10s;
+    transition-duration: 5s;
     transition-property: opacity;
+    background-color: black;
+}
+
+#errorpane {
+    position: fixed;
+    z-index: 1;
+    font-size: 12pt;
+    color: red;
+    background-color: transparent;
 }
 
 #restartgame.paused {
     visibility: visible;
-    opacity: .5;
+    opacity: .6;
     transition-duration: .5s;
     transition-property: opacity;
+    background-color: black;
     text-align: center;
 }
 
