@@ -24,6 +24,24 @@ html, body {
     transition-property: opacity;
 }
 
+    #restartgame.paused {
+    }
+
+#restartgame.paused {
+    visibility: visible;
+    opacity: .5;
+    transition-duration: .5s;
+    transition-property: opacity;
+    text-align: center;
+}
+
+#restartgame.paused span {
+    color: #cccccc;
+    font-size: 40pt;
+    top: 40%;
+    position: relative;
+}
+
 #restartgame.noshow {
     visibility: visible;
     opacity: .5;

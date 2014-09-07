@@ -183,6 +183,33 @@ function Particles() {
 var game_paused = false;
 
 
+
+function unpauseGame() {
+
+    var restartgame = document.getElementById("restartgame");
+
+    restartgame.onclick = function () {
+
+        restartgame.onclick = null;
+        restartgame.className = "";
+        game_paused = false;
+
+        //mouse_restart();
+        //keyboard_restart();
+        //background_restart();
+        //player_restart();
+        //sound_restart();
+        BgAudio.unpause();
+        game_restart();
+
+        //isGameOver = false;
+        //player_isActive = true;
+
+    };
+
+
+}
+
 function restartGame() {
     
     var restartgame = document.getElementById("restartgame");

@@ -69,6 +69,14 @@
         play();
     }
 
+    BgAudio.pause = function() {
+        _audio.pause();
+    }
+
+    BgAudio.unpause = function () {
+        _audio.play();
+    }
+
     BgAudio.stop = stop;
 
 })();
