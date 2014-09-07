@@ -11,7 +11,10 @@ function sound_init() {
 
 function sound_restart() {
 
-    createjs.Sound.stop();
+    try {
+createjs.Sound.stop(); } catch(e) {
+}
+    //createjs.Sound.stop();
     //createjs.Sound.play("game", { loop: -1 });
 
     BgAudio.play("sounds/sparkman.mp3", 73000, playingHandler);

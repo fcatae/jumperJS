@@ -6,6 +6,7 @@
     <SharedGUID>13b17d4f-4f5f-4009-b4ea-9b7d37d172af</SharedGUID>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)audioHandler.js" />
     <Content Include="$(MSBuildThisFileDirectory)bgaudio.js" />
     <Content Include="$(MSBuildThisFileDirectory)default.css" />
     <Content Include="$(MSBuildThisFileDirectory)default.html" />

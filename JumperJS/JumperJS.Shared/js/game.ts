@@ -127,14 +127,14 @@ function GameOver() {
         player_isActive = false;
 
         //game_stop();
-        try {
-            BgAudio.stop();
-            createjs.Sound.stop();
-            createjs.Sound.play("death");
-        } catch (e) { };
+        BgAudio.stop();
+        createjs.Sound.stop();
+
+        createjs.Sound.play("death");
+        createjs.Sound.play("gameover", null, 1000);
 
         createjs.Tween.get(stage)
-            .wait(100)
+            .wait(200)
             .call(function () {
 
                 var restartgame = document.getElementById("restartgame");
@@ -142,9 +142,10 @@ function GameOver() {
 
                 Particles();
 
-                try {
-                    createjs.Sound.play("gameover", null, 500);
-                } catch (e) { };
+                //createjs.Sound.play("gameover", null, 500);
+            })
+            .wait(500).call(function () {
+                //createjs.Sound.play("gameover");
             })
             .wait(2000).call(restartGame);        
 
@@ -178,8 +179,7 @@ function Particles() {
         var newm = 300;
         var newx = partic.x + newm * Math.sin(newa);
         var newy = partic.y - newm * Math.cos(newa);
-
-
+        
         createjs.Tween.get(partic).to({ x: newx, y: newy, alpha: 0, scaleX: .8, scaleY: .8 }, 2000).to({ visible: false });
     }
 }
@@ -236,11 +236,12 @@ function restartGame() {
         keyboard_restart();
         background_restart();
         player_restart();
-        sound_restart();
         game_restart();
 
         isGameOver = false;
         player_isActive = true;
+
+        sound_restart();
 
     };
 
