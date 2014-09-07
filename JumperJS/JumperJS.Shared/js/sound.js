@@ -21,3 +21,15 @@ function sound_restart() {
 function playingHandler() {
     gameReady();
 }
+
+var funcPlay = createjs.Sound.play;
+
+createjs.Sound.play = function (a, b, c, d, f, g, h, i, j) {
+
+    try {
+        funcPlay(a, b, c, d, f, g, h, i, j);
+    }
+    catch (e) {
+
+    }
+};
