@@ -191,16 +191,24 @@ function unpauseGame() {
     restartgame.onclick = function () {
 
         restartgame.onclick = null;
-        restartgame.className = "";
-        game_paused = false;
+        restartgame.className = "pause_transition";
 
         //mouse_restart();
         //keyboard_restart();
         //background_restart();
         //player_restart();
         //sound_restart();
-        BgAudio.unpause();
-        game_restart();
+        //BgAudio.unpause();
+        var promise = BgAudio.unpauseAsync();
+
+        promise.then(function () {
+
+            restartgame.className = "";
+            game_paused = false;
+
+            game_restart();
+
+        });
 
         //isGameOver = false;
         //player_isActive = true;

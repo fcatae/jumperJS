@@ -27,6 +27,13 @@ html, body {
     #restartgame.paused {
     }
 
+#restartgame.pause_transition{
+    visibility: visible;
+    opacity: 0;
+    transition-duration: 10s;
+    transition-property: opacity;
+}
+
 #restartgame.paused {
     visibility: visible;
     opacity: .5;
