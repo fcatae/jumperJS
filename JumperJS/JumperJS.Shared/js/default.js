@@ -32,5 +32,23 @@
         // args.setPromise().
     };
 
+    app.onbackclick = function () {
+
+        if (!game_paused) {
+            var restartgame = document.getElementById("restartgame");
+            restartgame.className = "noshow";
+            BgAudio.stop();
+            game_stop();
+
+            game_paused = true;
+
+            restartGame();
+
+            return true;
+        }
+
+        return false;
+    };
+
     app.start();
 })();

@@ -1,8 +1,22 @@
 ﻿///<reference path="../typings/createjs/createjs.d.ts" />
 ///<reference path="init.ts"/>
 
+var game_isInitialized = false;
+
 function game_init() {
-    createjs.Ticker.addEventListener("tick", tick);
+    game_restart();
+}
+
+function game_stop() {
+    game_isInitialized = false;
+    createjs.Ticker.removeEventListener("tick", tick);
+}
+
+function game_restart() {
+    if (!game_isInitialized) {
+        game_isInitialized = true;
+        createjs.Ticker.addEventListener("tick", tick);
+    }
 }
 
 function tick(event) {
@@ -112,6 +126,7 @@ function GameOver() {
         isGameOver = true;
         player_isActive = false;
 
+        //game_stop();
         BgAudio.stop();
         createjs.Sound.stop();
         createjs.Sound.play("death");
@@ -165,6 +180,8 @@ function Particles() {
     }
 }
 
+var game_paused = false;
+
 
 function restartGame() {
     
@@ -174,12 +191,14 @@ function restartGame() {
 
         restartgame.onclick = null;
         restartgame.className = "";
+        game_paused = false;
 
         mouse_restart();
         keyboard_restart();
         background_restart();
         player_restart();
         sound_restart();
+        game_restart();
 
         isGameOver = false;
         player_isActive = true;
