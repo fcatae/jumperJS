@@ -34,15 +34,22 @@
 
     app.onbackclick = function () {
 
-        if ((player_isActive) && (!game_paused)) {
+        if (!game_paused) {
             var restartgame = document.getElementById("restartgame");
             restartgame.className = "paused";
             BgAudio.pause();
+            createjs.Sound.stop();
             game_stop();
 
             game_paused = true;
 
-            unpauseGame();
+            if (isGameOver) {
+                restartGame();
+            }
+            else
+            {
+                unpauseGame();
+            }
 
             return true;
         }
